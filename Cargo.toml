@@ -1,0 +1,15 @@
+[workspace]
+members = [
+    "node",
+    'pallets/vtbdex',
+    'pallets/crosschain-actions',
+    'pallets/vtbc-token',
+    'pallets/usd-rate',
+    'pallets/vtbt',
+    "pallets/crosschain-client/eth",
+    "pallets/crosschain-client/eos",
+    "primitives",
+    "runtime",
+]
+[profile.release]
+panic = "unwind"
