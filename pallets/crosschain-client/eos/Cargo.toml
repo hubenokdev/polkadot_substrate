@@ -1,0 +1,96 @@
+[package]
+name = "crosschain-client-eos"
+version = "1.0.0"
+authors = [""]
+edition = "2021"
+license = "Unlicense"
+publish = false
+description = "Pallet crosschain-client-eos which enlist business logic of eos cryptocurrency"
+readme = "README.md"
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+serde_derive = "0.9"
+
+[dependencies.primitive-types]
+default-features = false
+version = "0.11.1"
+features = ["serde_no_std", "codec"]
+
+[dependencies.serde]
+default-features = false
+version = "1.0.100"
+features = ["derive"]
+
+[dependencies.serde_json]
+default-features = false
+version = "1.0.45"
+features = ["alloc"]
+
+[dependencies.codec]
+package = "parity-scale-codec"
+default-features = false
+version = "3.0.0"
+
+[dependencies.scale-info]
+default-features = false
+version = "2.0.1"
+features = ["derive"]
+
+[dependencies.log]
+default-features = false
+version = '0.4.14'
+
+[dependencies.frame-support]
+default-features = false
+git = 'https://github.com/paritytech/substrate.git'
+branch = "polkadot-v0.9.24"
+version = '4.0.0-dev'
+
+[dependencies.frame-system]
+default-features = false
+git = 'https://github.com/paritytech/substrate.git'
+branch = "polkadot-v0.9.24"
+version = '4.0.0-dev'
+
+[dependencies.sp-std]
+default-features = false
+git = 'https://github.com/paritytech/substrate.git'
+branch = "polkadot-v0.9.24"
+version = '4.0.0-dev'
+
+[dependencies.sp-runtime]
+default-features = false
+git = 'https://github.com/paritytech/substrate.git'
+branch = "polkadot-v0.9.24"
+version = '6.0.0'
+
+[dependencies.frame-benchmarking]
+default-features = false
+git = 'https://github.com/paritytech/substrate.git'
+branch = "polkadot-v0.9.24"
+version = '4.0.0-dev'
+optional = true
+
+[dependencies.pallet-cross-chain]
+default-features = false
+path = '../../crosschain-actions'
+version = '1.0.0'
+
+[features]
+default = ["std"]
+runtime-benchmarks = ['frame-benchmarking']
+std = [
+	"codec/std",
+	"scale-info/std",
+	"frame-support/std",
+	"frame-system/std",
+	"sp-runtime/std",
+	"sp-std/std",
+	"log/std",
+	"serde/derive",
+	'frame-benchmarking/std',
+]
+try-runtime = ["frame-support/try-runtime"]
